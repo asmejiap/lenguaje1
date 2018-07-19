@@ -1,0 +1,43 @@
+# Project: promedio_notas
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = promedio_notas.o seguridad.o pantalla_inicio.o menu.o calificaciones.o promedio.o
+LINKOBJ  = promedio_notas.o seguridad.o pantalla_inicio.o menu.o calificaciones.o promedio.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32 -pg
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = promedio_notas.exe
+CXXFLAGS = $(CXXINCS) -m32 -pg
+CFLAGS   = $(INCS) -m32 -pg
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+promedio_notas.o: promedio_notas.cpp
+	$(CPP) -c promedio_notas.cpp -o promedio_notas.o $(CXXFLAGS)
+
+seguridad.o: seguridad.cpp
+	$(CPP) -c seguridad.cpp -o seguridad.o $(CXXFLAGS)
+
+pantalla_inicio.o: pantalla_inicio.cpp
+	$(CPP) -c pantalla_inicio.cpp -o pantalla_inicio.o $(CXXFLAGS)
+
+menu.o: menu.cpp
+	$(CPP) -c menu.cpp -o menu.o $(CXXFLAGS)
+
+calificaciones.o: calificaciones.cpp
+	$(CPP) -c calificaciones.cpp -o calificaciones.o $(CXXFLAGS)
+
+promedio.o: promedio.cpp
+	$(CPP) -c promedio.cpp -o promedio.o $(CXXFLAGS)

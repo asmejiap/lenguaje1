@@ -1,0 +1,1 @@
+void pantalla_inicio ();
